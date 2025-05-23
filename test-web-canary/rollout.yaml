@@ -11,6 +11,7 @@ spec:
       analysis:
         templates:
           - templateName: test-web-canary-analysis
+            clusterScope: true
         args:
           - name: service-name
             value: web-canary
