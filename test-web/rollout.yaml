@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: web
+spec:
+  strategy:
+    blueGreen:
+      activeService: web
+      previewService: web-preview
+      autoPromotionEnabled: false
+      scaleDownDelaySeconds: 86400
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: web
+          image: web:v1
+
