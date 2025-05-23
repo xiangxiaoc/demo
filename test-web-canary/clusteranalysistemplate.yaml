@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ClusterAnalysisTemplate
+metadata:
+  name: test-web-canary-analysis
+spec:
+  args:
+    - name: service-name
+    - name: service-port
+  metrics:
+    - name: webmetric
+      count: 10
+      interval: 2s
+      successCondition: "result == hello"
+      failureLimit: 3
+      provider:
+        web:
+          url: "http://{{ args.service-name }}:{{ args.service-port }}/"
+          timeoutSeconds: 20
+          jsonPath: "{$.message}"
