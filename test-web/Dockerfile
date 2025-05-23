@@ -6,4 +6,4 @@ COPY . /app
 
 WORKDIR /app
 
-CMD ["fastapi", "dev", "web.py"]
+CMD ["fastapi", "dev", "--host", "0.0.0.0", "web.py"]
