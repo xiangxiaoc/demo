@@ -21,5 +21,5 @@ spec:
       containers:
         - name: web
           image: web:v1
-          imagePullPolicy: Always
+#          imagePullPolicy: Always
 
