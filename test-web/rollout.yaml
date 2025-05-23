@@ -20,5 +20,5 @@ spec:
     spec:
       containers:
         - name: web
-          image: web:v2
+          image: web:v1
 
